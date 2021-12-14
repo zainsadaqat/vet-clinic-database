@@ -42,7 +42,7 @@ BEGIN;
 UPDATE ANIMALS SET SPECIES = 'Digimon' WHERE NAME LIKE '%mon';
 
 -- Update the animals table by setting the species column to pokemon for all animals that don't have species already set.
-UPDATE ANIMALS SET SPECIES = 'Pokemon' WHERE NAME NOT LIKE '%mon';
+UPDATE ANIMALS SET SPECIES = 'Pokemon' WHERE NAME IS NULL;
 
 -- Commit the transaction.
 COMMIT;
