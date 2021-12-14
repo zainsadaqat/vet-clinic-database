@@ -43,6 +43,9 @@ VET_CLINIC=# INSERT INTO ANIMALS (NAME, DATE_OF_BIRTH, ESCAPE_ATTEMPTS, NEUTERED
 
 
 
+-------------------------------- DAY 03 --------------------------------
+
+
 
 -- Insert the following data into the owners table:
 

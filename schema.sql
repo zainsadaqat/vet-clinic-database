@@ -25,6 +25,15 @@ VET_CLINIC=# CREATE TABLE ANIMALS(
 );
 
 
+-------------------------------- DAY 02 --------------------------------
+
+
+-- Add a column species of type string to your animals table. Modify your schema.sql file.
+ALTER TABLE ANIMALS ADD SPECIES TEXT;
+
+
+-------------------------------- DAY 03 --------------------------------
+
 
 -- Create a table named owners with the following columns:
 -- id: integer (set it as autoincremented PRIMARY KEY)
@@ -65,11 +74,3 @@ UPDATE ANIMALS SET SPECIES_ID = (SELECT ID FROM SPECIES WHERE NAME='Digimon') WH
 
 -- All other animals are Pokemon
 UPDATE ANIMALS SET SPECIES_ID = (SELECT ID FROM SPECIES WHERE NAME='Pokemon') WHERE NAME NOT LIKE '%mon';
-
-
--------------------------------- DAY 02 --------------------------------
-
-
--- Add a column species of type string to your animals table. Modify your schema.sql file.
-ALTER TABLE ANIMALS ADD SPECIES TEXT;
-
