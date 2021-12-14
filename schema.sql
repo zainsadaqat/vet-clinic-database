@@ -74,3 +74,42 @@ UPDATE ANIMALS SET SPECIES_ID = (SELECT ID FROM SPECIES WHERE NAME='Digimon') WH
 
 -- All other animals are Pokemon
 UPDATE ANIMALS SET SPECIES_ID = (SELECT ID FROM SPECIES WHERE NAME='Pokemon') WHERE NAME NOT LIKE '%mon';
+
+
+-------------------------------- DAY 04 --------------------------------
+
+
+-- Create a table named vets with the following columns:
+CREATE TABLE VETS(
+
+-- id: integer (set it as autoincremented PRIMARY KEY)
+    ID INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+
+-- name: string
+    NAME TEXT,
+
+-- age: integer
+    AGE INT,
+
+-- date_of_graduation: date
+    DATE_OF_GRADUATION DATE
+);
+
+
+-- There is a many-to-many relationship between the tables species and vets: a vet can specialize in multiple species, and a species can have multiple vets specialized in it. Create a "join table" called specializations to handle this relationship.
+CREATE TABLE SPECIALIZATIONS(
+    VET_ID INT,
+    SPECIES_ID INT,
+    CONSTRAINT VET_ID FOREIGN KEY(VET_ID) REFERENCES VETS(ID),
+    CONSTRAINT SPECIES_ID FOREIGN KEY(SPECIES_ID) REFERENCES SPECIES(ID)
+);
+
+
+-- There is a many-to-many relationship between the tables animals and vets: an animal can visit multiple vets and one vet can be visited by multiple animals. Create a "join table" called visits to handle this relationship, it should also keep track of the date of the visit.
+CREATE TABLE VISITS(
+    ANIMALS_ID INT,
+    CONSTRAINT ANIMALS_ID FOREIGN KEY(ANIMALS_ID) REFERENCES ANIMALS(ID),
+    VETS_ID INT,
+    CONSTRAINT VETS_ID FOREIGN KEY(VETS_ID) REFERENCES VETS(ID),
+    DATE_OF_VISIT DATE
+);
