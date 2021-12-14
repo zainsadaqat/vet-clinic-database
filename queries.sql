@@ -28,6 +28,32 @@ SELECT * FROM ANIMALS WHERE NAME NOT IN ('Gabumon');
 SELECT * FROM ANIMALS WHERE WEIGHT_KG >= 10.4 AND WEIGHT_KG <= 17.3;
 
 
+
+
+-- Write queries (using JOIN) to answer the following questions:
+
+-- What animals belong to Melody Pond?
+SELECT NAME FROM ANIMALS JOIN OWNERS ON OWNER_ID = OWNERS.ID WHERE FULL_NAME = 'Melody Pond';
+
+-- List of all animals that are pokemon (their type is Pokemon).
+SELECT ANIMALS.NAME FROM ANIMALS JOIN SPECIES ON ANIMALS.SPECIES_ID = SPECIES.ID WHERE SPECIES.NAME = 'Pokemon';
+
+-- List all owners and their animals, remember to include those that don't own any animal.
+SELECT FULL_NAME, NAME FROM OWNERS LEFT JOIN ANIMALS ON OWNERS.ID = ANIMALS.OWNER_ID;
+
+-- How many animals are there per species?
+SELECT COUNT(*) FROM ANIMALS JOIN SPECIES ON ANIMALS.SPECIES_ID = SPECIES.ID GROUP BY SPECIES_ID;
+
+-- List all Digimon owned by Jennifer Orwell.
+SELECT NAME FROM ANIMALS JOIN OWNERS ON ANIMALS.OWNER_ID = OWNERS.ID WHERE FULL_NAME = 'Jennifer Orwell' AND ANIMALS.SPECIES_ID = (SELECT ID FROM SPECIES WHERE NAME = 'Digimon');
+
+-- List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT NAME FROM ANIMALS JOIN OWNERS ON ANIMALS.OWNER_ID = OWNERS.ID WHERE FULL_NAME = 'Dean Winchester' AND ANIMALS.ESCAPE_ATTEMPTS = 0;
+
+-- Who owns the most animals?
+
+SELECT OWNERS.FULL_NAME, COUNT(ANIMALS.OWNER_ID) FROM OWNERS INNER JOIN ANIMALS ON OWNERS.ID = ANIMALS.OWNER_ID GROUP BY OWNERS.FULL_NAME ORDER BY (COUNT) DESC LIMIT 1;
+
 -------------------------------- DAY 02 --------------------------------
 
 -- Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made. Then roll back the change and verify that species columns went back to the state before tranasction.
@@ -104,3 +130,4 @@ SELECT SPECIES, MIN(WEIGHT_KG), MAX(WEIGHT_KG) FROM ANIMALS GROUP BY SPECIES;
 
 -- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 SELECT SPECIES, AVG(ESCAPE_ATTEMPTS) FROM ANIMALS WHERE DATE_OF_BIRTH BETWEEN '1990-01-01' AND '2000-01-01' GROUP BY SPECIES;
+

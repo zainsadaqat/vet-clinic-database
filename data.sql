@@ -44,4 +44,49 @@ VET_CLINIC=# INSERT INTO ANIMALS (NAME, DATE_OF_BIRTH, ESCAPE_ATTEMPTS, NEUTERED
 
 
 
+-- Insert the following data into the owners table:
 
+-- Sam Smith 34 years old.
+INSERT INTO OWNERS(FULL_NAME, AGE) VALUES('Sam Smith', 34);
+
+-- Jennifer Orwell 19 years old.
+INSERT INTO OWNERS(FULL_NAME, AGE) VALUES('Jennifer Orwell', 19);
+
+-- Bob 45 years old.
+INSERT INTO OWNERS(FULL_NAME, AGE) VALUES('Bob', 45);
+
+-- Melody Pond 77 years old.
+INSERT INTO OWNERS(FULL_NAME, AGE) VALUES('Melody Pond', 77);
+
+-- Dean Winchester 14 years old.
+INSERT INTO OWNERS(FULL_NAME, AGE) VALUES('Dean Winchester', 14);
+
+-- Jodie Whittaker 38 years old.
+INSERT INTO OWNERS(FULL_NAME, AGE) VALUES('Jodie Whittaker', 38);
+
+
+-- Insert the following data into the species table:
+
+-- Pokemon
+INSERT INTO SPECIES(NAME) VALUES('Pokemon');
+
+-- Digimon
+INSERT INTO SPECIES(NAME) VALUES('Digimon');
+
+
+-- Modify your inserted animals to include owner information (owner_id):
+
+-- Sam Smith owns Agumon.
+UPDATE ANIMALS SET OWNER_ID = (SELECT ID FROM OWNERS WHERE FULL_NAME = 'Sam Smith') WHERE NAME = 'Agumon';
+
+-- Jennifer Orwell owns Gabumon and Pikachu.
+UPDATE ANIMALS SET OWNER_ID = (SELECT ID FROM OWNERS WHERE FULL_NAME = 'Jennifer Orwell') WHERE NAME IN ('Gabumon', 'Pikachu');
+
+-- Bob owns Devimon and Plantmon.
+UPDATE ANIMALS SET OWNER_ID = (SELECT ID FROM OWNERS WHERE FULL_NAME = 'Bob') WHERE NAME IN ('Devimon', 'Plantmon');
+
+-- Melody Pond owns Charmander, Squirtle, and Blossom.
+UPDATE ANIMALS SET OWNER_ID = (SELECT ID FROM OWNERS WHERE FULL_NAME = 'Melody Pond') WHERE NAME IN ('Charmander', 'Squirtle', 'Blossom');
+
+-- Dean Winchester owns Angemon and Boarmon.
+UPDATE ANIMALS SET OWNER_ID = (SELECT ID FROM OWNERS WHERE FULL_NAME = 'Dean Winchester') WHERE NAME IN ('Angemon', 'Boarmon');
