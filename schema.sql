@@ -121,4 +121,11 @@ CREATE TABLE VISITS(
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
+-- SELECT COUNT(*) FROM visits where animal_id = 4;
 CREATE INDEX ANIMALS_ID_INDEX ON VISITS(ANIMALS_ID);
+
+-- SELECT * FROM visits where vet_id = 2;
+CREATE INDEX VETS_ID_INDEX ON VISITS(VETS_ID);
+
+
+
