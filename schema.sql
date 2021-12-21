@@ -113,3 +113,10 @@ CREATE TABLE VISITS(
     CONSTRAINT VETS_ID FOREIGN KEY(VETS_ID) REFERENCES VETS(ID),
     DATE_OF_VISIT DATE
 );
+
+
+
+-------------------------------- WEEK 02: DAY 01 --------------------------------
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
