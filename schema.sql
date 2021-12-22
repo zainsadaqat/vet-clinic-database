@@ -113,3 +113,22 @@ CREATE TABLE VISITS(
     CONSTRAINT VETS_ID FOREIGN KEY(VETS_ID) REFERENCES VETS(ID),
     DATE_OF_VISIT DATE
 );
+
+
+
+-------------------------------- WEEK 02: DAY 01 --------------------------------
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- SELECT COUNT(*) FROM visits where animal_id = 4;
+CREATE INDEX ANIMALS_ID_INDEX ON VISITS(ANIMALS_ID);
+
+-- SELECT * FROM visits where vet_id = 2;
+CREATE INDEX VETS_ID_INDEX ON VISITS(VETS_ID);
+
+-- SELECT * FROM owners where email = 'owner_18327@mail.com';
+CREATE INDEX EMAIL_INDEX ON OWNERS(EMAIL);
+
+
+
