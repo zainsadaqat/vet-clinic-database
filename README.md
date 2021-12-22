@@ -8,7 +8,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## Schema Diagram
 
-![Vet Clinic Schema Diagram](https://github.com/zainsadaqat/../../../schema_diagram.png)
+![schema_diagram](https://user-images.githubusercontent.com/83048208/147141033-e533a4bf-d48f-4fe7-8255-ff9c09958cfa.png)
 
 ## Author
 
