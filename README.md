@@ -1,4 +1,4 @@
-# Vet Clinic Database
+# Vet Clinic Database - PostgreSQL
 
 This repository includes files with plain SQL that can be used to recreate a database:
 
