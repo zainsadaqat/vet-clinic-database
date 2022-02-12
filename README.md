@@ -14,9 +14,9 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 👤 **Zain Sadaqat**
 
-- GitHub: [@GitHub](https://github.com/zainsadaqat)
-- Twitter: [@Twitter](https://twitter.com/zain_sadaqat)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/zain-sadaqat)
+- GitHub: [@zainsadaqat](https://github.com/zainsadaqat)
+- Twitter: [@zain_sadaqat](https://twitter.com/zain_sadaqat)
+- LinkedIn: [@zain-sadaqat](https://linkedin.com/in/zain-sadaqat)
 
 
 ## 🤝 Contributing
